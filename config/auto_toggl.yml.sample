@@ -1,1 +1,3 @@
 api_token: MYAPITOKENFROMTOGGL
+default_workspace_id: 99999
+default_project_id: 99999
