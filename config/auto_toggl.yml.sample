@@ -1,3 +1,25 @@
-api_token: MYAPITOKENFROMTOGGL
-default_workspace_id: 99999
-default_project_id: 99999
+profiles:
+  - 
+    uniqname: janedoe
+    api_token: HERAPITOKENFROMTOGGL
+    workspace_id: 99999
+    project_id: 99999
+    description: 'Real Work'
+    start:
+      hour: 09
+      minute: 00
+      second: 00
+    duration: 28800
+    tag: 'development'
+  - 
+    uniqname: johnguy
+    api_token: HISAPITOKENFROMTOGGL
+    workspace_id: 99999
+    project_id: 99999
+    description: 'Real Work'
+    start:
+      hour: 09
+      minute: 00
+      second: 00
+    duration: 28800
+    tag: 'operational'
