@@ -15,6 +15,3 @@ class Settings
     cfg['profiles']
   end
 end
-
-puts 'start'
-puts Settings.profiles
