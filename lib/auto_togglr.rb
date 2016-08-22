@@ -10,15 +10,11 @@ class AutoTogglr
   # Entry attributes
   attr :description, :project_id, :start, :duration, :tag, :now
 
-  # List of Umich Holidays
-  attr :holidays
-
   # initialize with a profile
   def initialize(profile)
     # Have token or die
     abort("no api_token") unless profile['api_token']
     configure profile
-    load_holidays
   end
 
   def configure(pf)
@@ -32,20 +28,12 @@ class AutoTogglr
     @tag         = pf['tag']
   end
 
-  def load_holidays
-    Array.new
-  end
-
   def workspaces
     workspaces = @toggl_api.my_workspaces(@user)
   end
 
   def projects(workspace_id=@workspace)
     projects = @toggl_api.projects workspace_id
-  end
-
-  def date_is_holiday?(date = Date.today)
-    @holidays.include? "#{date.year}-#{date.month}-#{date.day}"
   end
 
   def date_has_entry?(date = Date.today)
