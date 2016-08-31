@@ -33,6 +33,18 @@ class AutoToggleCli < Thor
     Settings.profiles.each{ |profile| puts "user: #{profile['uniqname']} task: #{profile['description']}" }
   end
 
+  desc "list_projects", "List available projects for user." 
+  def list_projects( user=nil )
+    exit_msg("Uniquename required.") unless user 
+
+    profile = profile_for user
+    exit_msg("No matching profile.") if profile.empty?
+
+    AutoTogglr.new(profile).projects.each do |proj|
+      printf("%12s %s \n", proj['id'], proj['name'])
+    end
+  end
+
   desc "backfill USER", "Backfill to 2016-01-01 for user."
   def backfill( user=nil )
     exit_msg("Uniquename required.") unless user 
